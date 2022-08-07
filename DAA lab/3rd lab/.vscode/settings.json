@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "chrono": "cpp",
+        "condition_variable": "cpp",
+        "iostream": "cpp"
+    }
+}
