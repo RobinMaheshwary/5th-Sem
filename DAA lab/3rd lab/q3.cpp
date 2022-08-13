@@ -6,13 +6,16 @@ using namespace std;
 
 int floorSqrt(int x)
 {
-    if (x == 0 || x == 1)
+    if (x == 0)
+    return x;
+
+    if (x == 1)
     return x;
 
     int i = 1, result = 1;
     while (result <= x)
     {
-      i++;
+      i=i+1;
       result = i * i;
     }
     return i - 1;

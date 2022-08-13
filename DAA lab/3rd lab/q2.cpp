@@ -4,7 +4,7 @@
 
 int findMajorityNormal(int nums[], int n)
 {
-    for (int i = 0; n && i <= n / 2; i++)
+    for (int i = 0; i <= n / 2; i++)
     {
         int count = 1;
         for (int j = i + 1; j < n; j++)
@@ -40,14 +40,12 @@ int main()
     int arr[n];
     for (int i = 0; i < n;i++)
         scanf("%d",&arr[i]);
-    /*for (int i = 0; i < n;i++)
-        arr[i] = rand() % 100;*/
     clock_t t = clock();
-    printf("The major element is (O(n^2)): %d\n", findMajorityNormal(arr, n));
+    printf("The major element in (O(n^2)): %d\n", findMajorityNormal(arr, n));
     t = clock() - t;
     printf("Time taken Normal method : %f\n", ((double)t) / CLOCKS_PER_SEC);
     t = clock();
-    printf("The major element is (O(n)): %d\n", findMajorityLinear(arr, n));
+    printf("The major element in (O(n)): %d\n", findMajorityLinear(arr, n));
     t = clock() - t;
     printf("Time taken Boyer-Moore method : %f\n", ((double)t) / CLOCKS_PER_SEC);
 }
