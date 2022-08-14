@@ -1,6 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+int fullN_method(int n)
+{
+    int i, count = 0, flag = 0;
+    for (i = 2; i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            flag = 1;
+            break;
+        }
+    }
+    if (flag == 0)
+        printf("%d is prime number.\n", n);
+    else
+        printf("%d is not prime number.\n", n);
+}
+
 int main()
 {
     clock_t start, end;
@@ -11,36 +28,7 @@ int main()
     int n;
     cout << "enter n ";
     cin >> n;
-    int arr[n];
-
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> distr(2, 1000);
-
-    for (int i = 0; i < n; i++)
-    {
-        arr[i] = distr(gen);
-        bool flag = true;
-
-        if (arr[i] % 2 == 0 || arr[i] % 3 == 0)
-        {
-            continue;
-        }
-
-        for (int j = 2; j * j <= arr[i]; j++)
-        {
-            if (arr[i] % j == 0)
-            {
-                flag = false;
-                break;
-            }
-        }
-        if (flag == true)
-        {
-            cout << arr[i] << " ";
-        }
-        // cout<<arr[i]<<" ";
-    }
+   fullN_method(n);
 
     end = clock();
     double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
