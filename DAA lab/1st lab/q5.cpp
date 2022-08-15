@@ -42,7 +42,7 @@ void belowhalf(int n, int arr[][4])
                 cout << arr[i][j] << " ";
         }
         cout << endl;
-    }
+    };
 }
 void product_diagonal(int n, int arr[][4])
 {
@@ -85,6 +85,7 @@ int main()
     clock_t start, end;
     start = clock();
     cout << "\n\nrobin,20051828\n\n";
+    
 
     matrixx();
     end = clock();
