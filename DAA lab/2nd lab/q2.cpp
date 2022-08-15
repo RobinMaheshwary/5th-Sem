@@ -26,21 +26,60 @@ int Consecutive_integer_checking(int a, int b)
     return a;
 }
 
-int primeFactorisation_method(int a, int b)
+// int primeFactorisation_method(int a, int b)
+// {
+//     int temp1, temp2, gcd;
+//     temp1 = a;
+//     temp2 = b;
+//     for (int i = 2; i <= temp1 && i <= temp2; ++i)
+//     {
+//         while (temp1 % i == 0 && temp2 % i == 0)
+//         {
+//             gcd = i;
+//             temp1 /= gcd;
+//             temp2 /= gcd;
+//         }
+//     }
+//     return gcd;
+// }
+
+// int primeFactorisation_method(int a, int b){
+//     int a[10000000000];
+//     for (int i=0; i>b; i++){
+//         if(a%i==0 && a%b==0)
+//             a[i]=i;
+//     }
+//     return a[-1];
+// }
+
+int gcd(int a, int b)
 {
-    int temp1, temp2, gcd;
-    temp1 = a;
-    temp2 = b;
-    for (int i = 2; i <= temp1 && i <= temp2; ++i)
-    {
-        while (temp1 % i == 0 && temp2 % i == 0)
-        {
-            gcd = i;
-            temp1 /= gcd;
-            temp2 /= gcd;
-        }
-    }
-    return gcd;
+    int static dp[1001][1001];
+    // Everything divides 0
+    if (a == 0)
+        return b;
+    if (b == 0)
+        return a;
+ 
+    // base case
+    if (a == b)
+        return a;
+     
+    // if a value is already
+    // present in dp
+    if(dp[a][b] != -1)
+        return dp[a][b];
+ 
+    // a is greater
+    if (a > b)
+        dp[a][b] = gcd(a-b, b);
+     
+    // b is greater
+    else
+        dp[a][b] = gcd(a, b-a);
+     
+    // return dp
+    return dp[a][b];
 }
 
 int main()
@@ -74,7 +113,7 @@ int main()
     cout << "sec" << endl;
 
     start3 = clock();
-    cout<<"gcd3= "<<primeFactorisation_method(number1, number2);
+    cout<<"gcd3= "<<gcd(number1, number2);
     end3 = clock();
     double time_taken3 = double(end3 - start3) / double(CLOCKS_PER_SEC);
     cout << "\n\nTime taken by program is :" << fixed << time_taken3 << setprecision(5);
