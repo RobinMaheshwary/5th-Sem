@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int halfN_method(int n)
+void halfN_method(int n)
 {
     int i, count = 0, flag = 0;
     for (i = 2; i <= n / 2; i++)

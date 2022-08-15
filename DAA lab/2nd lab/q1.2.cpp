@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int fullN_method(int n)
+void fullN_method(int n)
 {
     int i, count = 0, flag = 0;
     for (i = 2; i <= n; i++)
