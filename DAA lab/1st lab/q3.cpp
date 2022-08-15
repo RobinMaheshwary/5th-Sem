@@ -1,8 +1,13 @@
 
-#include <stdio.h>
-
+#include <iostream>
+#include <bits/stdc++.h>
+#include <time.h>
+using namespace std;
 int main()
 {
+    clock_t start, end;
+    start = clock();
+    cout << "\n\nrobin,20051828\n\n";
     int n;
     int arr[n];
     int odd[n];
