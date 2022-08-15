@@ -182,6 +182,7 @@ int menu()
     default:
         break;
     }
+    return 0;
 }
 int main()
 {

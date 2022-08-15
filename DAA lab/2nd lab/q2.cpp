@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include<bits/stdc++.h>
 using namespace std;
+
+int static dp[1001][1001];
 int Euclid(int a, int b)
 {
     int r;
@@ -54,7 +56,7 @@ int Consecutive_integer_checking(int a, int b)
 
 int gcd(int a, int b)
 {
-    int static dp[1001][1001];
+    
     // Everything divides 0
     if (a == 0)
         return b;
@@ -113,6 +115,7 @@ int main()
     cout << "sec" << endl;
 
     start3 = clock();
+    memset(dp, -1, sizeof(dp));
     cout<<"gcd3= "<<gcd(number1, number2);
     end3 = clock();
     double time_taken3 = double(end3 - start3) / double(CLOCKS_PER_SEC);
