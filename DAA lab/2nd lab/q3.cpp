@@ -1,7 +1,6 @@
 #include <bits/stdc++.h>
 #include <chrono>
 #include <unistd.h>
-#include <vector>
 using namespace std;
 using namespace std::chrono;
 vector<int> arr;
