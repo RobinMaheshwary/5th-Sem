@@ -16,7 +16,7 @@ void *Insert(int x,int a[]){
     exit(0);
     free(ptr);
 
-    &a[i] = ptr;
+    a[i] = ptr;
 
     }
   }
