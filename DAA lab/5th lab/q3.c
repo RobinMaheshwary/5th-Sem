@@ -40,7 +40,7 @@ void print_list()
     printf("\n");
 }
 
-void find_third_element()
+void find_third_element_from_last()
 {
     struct node *temp = head;
     int count = 0;
@@ -87,7 +87,7 @@ int main() {
             }
         case 3:
             {
-                find_third_element();
+                find_third_element_from_last();
                 break;
             }
         case 4:
