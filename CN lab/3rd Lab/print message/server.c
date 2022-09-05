@@ -52,7 +52,6 @@ int main()
     recv(client_sock, buffer, sizeof(buffer), 0);
     printf("Client: %s\n\n", buffer);
 
-    // printf("add message from client")
 
     close(server_sock);
     printf("\n\nclient disconnected");

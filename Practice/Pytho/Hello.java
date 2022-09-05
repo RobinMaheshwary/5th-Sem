@@ -1,3 +1,0 @@
-public static  name() {
-    Syst
-}
