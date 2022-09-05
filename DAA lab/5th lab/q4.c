@@ -1,9 +1,5 @@
 // WAP in c to convert a sorted list to a binary search tree.
 
-// Language: c
-// Path: DAA lab/5th lab/q5.c
-
-
 #include <stdio.h>
 #include<stdlib.h>
 
@@ -40,21 +36,21 @@ void printList(){
     printf("\n");
 }
 
-void partitionList(int x){
+void binarySearchTree(int n){
     struct node* temp = head;
     struct node* prev = NULL;
     struct node* next = NULL;
     while(temp != NULL){
         next = temp->next;
-        if(temp->data < x){
+        if(temp->data < n){
             if(prev == NULL){
                 head = next;
             }
             else{
                 prev->next = next;
             }
-            temp->next = NULL;
-            insertNode(temp->data);
+            temp->next = head;
+            head = temp;
         }
         else{
             prev = temp;
@@ -73,7 +69,7 @@ int main(){
         insert_node(data);
     }
     printList();
-    partitionList(3);
+    binarySearchTree(n);
     printList();
     return 0;
 }

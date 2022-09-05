@@ -1,3 +1,6 @@
+// Given a linked list and a value x, partition it such that all nodes less than x come before nodes
+// greater than or equal to x.
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -42,31 +45,58 @@ void print_list()
 
 void partition_list(int x)
 {
+    struct node *less_than_x = NULL;
+    struct node *greater_than_x = NULL;
     struct node *temp = head;
-    struct node *prev = NULL;
-    struct node *next = NULL;
     while (temp != NULL)
     {
-        next = temp->next;
         if (temp->data < x)
         {
-            if (prev == NULL)
+            struct node *new_node = (struct node *)malloc(sizeof(struct node));
+            new_node->data = temp->data;
+            new_node->next = NULL;
+            if (less_than_x == NULL)
             {
-                head = next;
+                less_than_x = new_node;
             }
             else
             {
-                prev->next = next;
+                struct node *temp1 = less_than_x;
+                while (temp1->next != NULL)
+                {
+                    temp1 = temp1->next;
+                }
+                temp1->next = new_node;
             }
-            temp->next = head;
-            head = temp;
         }
         else
         {
-            prev = temp;
+            struct node *new_node = (struct node *)malloc(sizeof(struct node));
+            new_node->data = temp->data;
+            new_node->next = NULL;
+            if (greater_than_x == NULL)
+            {
+                greater_than_x = new_node;
+            }
+            else
+            {
+                struct node *temp1 = greater_than_x;
+                while (temp1->next != NULL)
+                {
+                    temp1 = temp1->next;
+                }
+                temp1->next = new_node;
+            }
         }
-        temp = next;
+        temp = temp->next;
     }
+    struct node *temp1 = less_than_x;
+    while (temp1->next != NULL)
+    {
+        temp1 = temp1->next;
+    }
+    temp1->next = greater_than_x;
+    head = less_than_x;
 }
 
 int main()
