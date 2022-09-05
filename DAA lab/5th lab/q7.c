@@ -44,31 +44,25 @@ void remove_duplicates()
 {
     struct node *temp = head;
     struct node *prev = NULL;
+    struct node *current = NULL;
     while (temp != NULL)
     {
-        struct node *next = temp->next;
-        while (next != NULL)
+        prev = temp;
+        current = temp->next;
+        while (current != NULL)
         {
-            if (temp->data == next->data)
+            if (current->data == temp->data)
             {
-                if (prev == NULL)
-                {
-                    head = next->next;
-                }
-                else
-                {
-                    prev->next = next->next;
-                }
-                next = next->next;
+                prev->next = current->next;
+                free(current);
+                current = prev->next;
             }
             else
             {
-                prev = temp;
-                temp = temp->next;
-                next = next->next;
+                prev = current;
+                current = current->next;
             }
         }
-        prev = temp;
         temp = temp->next;
     }
 }
