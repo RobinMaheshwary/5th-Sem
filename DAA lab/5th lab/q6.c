@@ -59,6 +59,7 @@ void reverse_list()
 
 int main()
 {
+    printf("robin,20051828\n");
     int n;
     scanf("%d", &n);
     for (int i = 0; i < n; i++)
