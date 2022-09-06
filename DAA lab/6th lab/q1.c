@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include<time.h>
 
 void heapify(int arr[], int n, int i)
 {
@@ -51,6 +52,9 @@ void printArray(int arr[], int n)
 int main()
 {
     int n;
+    printf("20051828,robin\n");
+    clock_t start,end;
+    start = clock();
     printf("Enter the number of elements: ");
     scanf("%d", &n);
     int arr[n];
@@ -62,4 +66,9 @@ int main()
 
     printf("Sorted array is: ");
     printArray(arr, n);
+
+    end = clock();
+    double time_taken = ((double)(end - start)) / CLOCKS_PER_SEC;
+    printf("Time taken: %f", time_taken);
+    return 0;
 }

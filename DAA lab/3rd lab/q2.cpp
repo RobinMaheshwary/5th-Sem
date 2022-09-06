@@ -20,15 +20,19 @@ int findMajorityNormal(int nums[], int n)
 int findMajorityLinear(int nums[], int n)
 {
     int m;
-    int i = 0;
-    for (int j = 0; j < n; j++)
+    int i = 0,j;
+    for (j = 0; j < n; j++)
     {
         if (i == 0)
             m = nums[j], i = 1;
         else
             (m == nums[j]) ? i++ : i--;
     }
-    return m;
+    if (i > n / 2)
+        return nums[j];
+    else 
+        return -1;
+     
 }
 int main()
 {
