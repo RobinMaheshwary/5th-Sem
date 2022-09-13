@@ -38,7 +38,7 @@ float knapsack(Item items[], int sizeOfItems, int W) {
    int i, j;
    float totalValue = 0, totalWeight = 0;
    for (i = 0; i < sizeOfItems; i++) {
-      items[i].d = (float)items[i].v / items[i].w; //typecasting done (v is int and w is also int so we get final value of d as int)
+      items[i].d = (float)items[i].v / items[i].w;
    }
    sort(items, items+sizeOfItems, compare);
    cout << "values : ";
