@@ -68,20 +68,67 @@ float knapsack(Item items[], int sizeOfItems, int W) {
    cout << "Total weight in bag " << totalWeight<<endl;
    return totalValue;
 }
+float nonFractionalKnapsack(Item items[], int sizeOfItems, int W) {
+   int i, j;
+   float totalValue = 0, totalWeight = 0;
+   for (i = 0; i < sizeOfItems; i++) {
+      items[i].d = (float)items[i].v / items[i].w;
+   }
+   sort(items, items+sizeOfItems, compare);
+   cout << "values : ";
+   for(i = 0; i < sizeOfItems; i++) {
+      cout << items[i].v << "\t";
+   }
+   cout << endl << "weights: ";
+   for (i = 0; i < sizeOfItems; i++) {
+      cout << items[i].w << "\t";
+   }
+   cout << endl << "ratio  : ";
+   for (i = 0; i < sizeOfItems; i++) {
+      cout << items[i].d << "\t";
+   }
+   cout << endl;
+   for(i=0; i<sizeOfItems; i++) {
+      if(totalWeight + items[i].w<= W) {
+         totalValue += items[i].v ;
+         totalWeight += items[i].w;
+      } 
+   }
+   return totalValue;
+}
 int main() {
    printf("20051828,robin\n");
    clock_t start, end;
    start = clock();
-   int W;
-   Item items[4];
-   input(items, 4);
+   int W,sizeOfItems;
+   cout << "Enter size of items ";
+   cin >> sizeOfItems;
+   Item items[sizeOfItems];
+   input(items, sizeOfItems);
    cout << "Entered data \n";
-   display(items,4);
+   display(items, sizeOfItems);
    cout<< "Enter Knapsack weight \n";
    cin >> W;
-   float mxVal = knapsack(items, 4, W);
-   cout << "Max value for "<< W <<" weight is "<< mxVal;
+   float mxVal = knapsack(items, sizeOfItems, W);
 
+
+   cout<<"Select choice"<<endl;
+   cout<<"1. Fractional Knapsack"<<endl;
+   cout<<"2. Non Fractional Knapsack"<<endl;
+   int choice;
+   cin>>choice;
+   switch(choice){
+      case 1:
+         cout << "Maximum value we can obtain = " << mxVal << endl;
+         break;
+      case 2:
+         cout << "Maximum value we can obtain = " << nonFractionalKnapsack(items, 4, W) << endl;
+         break;
+      default:
+         cout<<"Invalid choice"<<endl;
+   }
+   
+   
    end = clock();
    double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
    cout << "Time taken by program is : " << fixed << time_taken << setprecision(5);

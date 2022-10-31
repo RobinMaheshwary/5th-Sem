@@ -1,5 +1,5 @@
 //  activity scheduling using greedy algorithm
-
+#include<iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
