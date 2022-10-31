@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <iostream>
 #include <stdlib.h>
 #include <limits.h>
@@ -24,20 +23,17 @@ int Least_Key(int key[], bool Min_Span_Tree[])
     return min_index;
 }
 
-// Utility function to print MST
 
 void print_Prims_MST(int parent[], int graph[Vertices][Vertices])
 
 {
 
-    cout << "  Edge   :  Cost";
+    cout << " Edge  : Cost";
 
     for (int i = 1; i < Vertices; i++)
-
-        cout << "\n"<< parent[i] << i << graph[i][parent[i]];
+         cout << "\n"<<" "<< parent[i]<<"-->" << i <<" : "<< graph[i][parent[i]];
 }
 
-// Function for generating an MST
 
 void prims_MST(int graph[Vertices][Vertices])
 
