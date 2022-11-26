@@ -1,5 +1,3 @@
-// client side
-
 #include <arpa/inet.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -24,6 +22,7 @@ int main()
 
      memset(&servaddr, 0, sizeof(servaddr));
 
+     
      servaddr.sin_family = AF_INET;
      servaddr.sin_port = htons(PORT);
      servaddr.sin_addr.s_addr = INADDR_ANY;
@@ -32,6 +31,7 @@ int main()
      printf("Send to the server: \n");
      scanf("%[^\n]s", buffer);
      sendto(sockfd, buffer, strlen(buffer), 0, (struct sockaddr *)&servaddr, sizeof(servaddr));
+
 
     recv(sockfd, buffer, MAX, 0);
     printf("Server: %s", buffer);
